@@ -59,6 +59,7 @@ public class UIConsole {
             String expresion = input("Insert expresion = ");
 
             boolean result = service.checkExpresion(expresion);
+            System.out.println(result);
         }
         catch (ValidationException ex) {
             System.out.println("Invalid expresion: " + ex.getMessage());
