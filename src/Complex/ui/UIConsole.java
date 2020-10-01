@@ -58,7 +58,8 @@ public class UIConsole {
         try {
             String expresion = input("Insert expresion = ");
 
-            boolean result = service.checkExpresion(expresion);
+           boolean result = service.checkExpresion(expresion);
+            service.Calculeaza(expresion);
             System.out.println(result);
         }
         catch (ValidationException ex) {

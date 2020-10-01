@@ -15,6 +15,30 @@ public class NumarComplex {
     public NumarComplex adauga(NumarComplex a, NumarComplex b){
         return new NumarComplex(a.real + b.real,a.imag+b.imag);
     }
+    public NumarComplex sterge(NumarComplex a, NumarComplex b){
+        return new NumarComplex(a.real - b.real,a.imag - b.imag);
+    }
+    public NumarComplex inmultire(NumarComplex a, NumarComplex b){
+
+        double _real = a.real*b.real - a.imag*b.imag;
+        double _imaginary = a.real*b.imag + a.imag*b.real;
+        return new NumarComplex(_real,_imaginary);
+    }
+    public NumarComplex imparte(NumarComplex a, NumarComplex b){
+
+        NumarComplex output = inmultire(a,b.conjugatul());
+        double div = Math.pow(b.mod(),2);
+        return new NumarComplex(output.real/div,output.imag/div);
+    }
+    public double mod()
+    {
+        return Math.sqrt(Math.pow(this.real,2) + Math.pow(this.imag,2));
+    }
+    public NumarComplex conjugatul()
+    {
+        return new NumarComplex(this.real,-this.imag);
+    }
+
     public double getReal(){
         return real;
     }
@@ -42,41 +66,40 @@ public class NumarComplex {
         String[] parts = expresie.split(" ");
         for(int i=0;i<parts.length;i++) {
 
+
                 // verificam daca p.imag
                 if (parts[i].indexOf('i') != -1) {
-
-
                     if(i+1 < parts.length) {
-                        if ((parts[i+1].indexOf('+') == -1) && (parts[i+1].indexOf('-') == -1)) {
-                            System.out.println(parts[i+1]);
-                            System.out.println("\n");
+                        if ((parts[i+1].indexOf('+') == -1) && (parts[i+1].indexOf('-') == -1) && (parts[i+1].indexOf('*') == -1)&& (parts[i+1].indexOf('/') == -1)) {
                             ok = false;
                         }
+                        System.out.println(parts[i]);
 
                         i += 1;
-                        // check sing
-
                     }
-                }
+                    else{
+                        System.out.println(parts[i]);
+                        i += 1;
+                    }
 
+                }
                 // daca argumentul este intreg inseamna ca vom avea ca argument+1 +/- iar arg+2 partea imaginara
                 else if (isInteger(parts[i])) {
-
                     // verificam daca este operator
                     if(i+3 < parts.length) {
-
-                        // check sing
-                        if ((parts[i+3].indexOf('+') == -1) && (parts[i+3].indexOf('-') == -1)) {
-
-                            System.out.println(parts[i+3]);
-                            System.out.println("\n");
+                        if ((parts[i+3].indexOf('+') == -1) && (parts[i+3].indexOf('-') == -1) && (parts[i+1].indexOf('*') == -1)&& (parts[i+1].indexOf('/') == -1)) {
                             ok = false;
-
                         }
-
+                        System.out.println(parts[i]);
+                        System.out.println(parts[i+1]);
+                        System.out.println(parts[i+2]);
                         i += 3;
-
-
+                    }
+                    else{
+                        System.out.println(parts[i]);
+                        System.out.println(parts[i+1]);
+                        System.out.println(parts[i+2]);
+                        i += 3;
                     }
                 }
             }

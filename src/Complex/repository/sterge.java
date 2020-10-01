@@ -2,10 +2,10 @@ package Complex.repository;
 
 import Complex.model.NumarComplex;
 
-public class adauga extends ComplexExpression {
+public class sterge extends ComplexExpression {
     @Override
     NumarComplex executeOneOperation(NumarComplex a,NumarComplex b) {
-        NumarComplex c = new NumarComplex().adauga(a,b);
+        NumarComplex c = new NumarComplex().sterge(a,b);
         return c;
     }
 

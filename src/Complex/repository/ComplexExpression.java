@@ -13,7 +13,7 @@ enum Operation{
 
 public abstract class ComplexExpression {
     Operation operation;
-    protected List<NumarComplex> complex_numbers = new ArrayList<NumarComplex>();
+    final List<NumarComplex> complex_numbers = new ArrayList<NumarComplex>();
 
     abstract NumarComplex executeOneOperation(NumarComplex a, NumarComplex b);
 
