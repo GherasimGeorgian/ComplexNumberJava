@@ -3,22 +3,23 @@ package Complex.repository;
 import java.util.ArrayList;
 import java.util.List;
 import Complex.model.NumarComplex;
+import Complex.Operation;
 
-enum Operation{
-    ADDITION,
-    SUBSTRACTION,
-    MULTIPLICATION,
-    DIVISION
-}
 
 public abstract class ComplexExpression {
+
     Operation operation;
-    final List<NumarComplex> complex_numbers = new ArrayList<NumarComplex>();
+    NumarComplex[] complex_numbers;
 
-    abstract NumarComplex executeOneOperation(NumarComplex a, NumarComplex b);
+    public ComplexExpression(Operation operation, NumarComplex[] args){
+        this.operation = operation;
+        this.complex_numbers = args;
+    }
 
-    public final NumarComplex execute(NumarComplex a,NumarComplex b){
-        return executeOneOperation(a,b);
+    abstract NumarComplex executeOneOperation();
+
+    public final NumarComplex execute(){
+        return executeOneOperation();
     }
 
 }
