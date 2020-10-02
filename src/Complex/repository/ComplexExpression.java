@@ -21,6 +21,9 @@ public abstract class ComplexExpression {
     public final NumarComplex execute(){
         return executeOneOperation();
     }
+    public final String CreeazaExpresie(){
+        return new String(this.operation.toString());
+    }
 
 }
 

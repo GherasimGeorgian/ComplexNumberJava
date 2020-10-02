@@ -13,9 +13,9 @@ public class hello {
         ExpressionFactory expF = new ExpressionFactory();
         NumarComplex[] caca = {new NumarComplex(3.0,6.0),new NumarComplex(3.0,6.0)};
         ComplexExpression cmpxExp = expF.createExpression(Operation.ADDITION,caca);
-        NumarComplex xxx =  cmpxExp.execute();
-        System.out.println("Partea reala"+ xxx.getReal());
-        System.out.println("Partea imaginara"+ xxx.getImag());
+        String xxx =  cmpxExp.CreeazaExpresie();
+        System.out.println(xxx);
+
 
         UIConsole ui = new UIConsole();
         Service service= new Service();
